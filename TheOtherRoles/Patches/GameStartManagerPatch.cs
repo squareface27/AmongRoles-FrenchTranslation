@@ -83,10 +83,10 @@ namespace TheOtherRoles.Patches {
                             versionMismatch = true;
                         } else if (!PV.GuidMatches()) { // version presumably matches, check if Guid matches
                             message += $"<color=#FF0000FF>{client.Character.Data.PlayerName} has a modified version of TOR v{playerVersions[client.Id].version.ToString()} <size=30%>({PV.guid.ToString()})</size>\n</color>";
-                            versionMismatch = true;
+                            versionMismatch = false;
                         }
                     }
-                }
+                } 
 
                 // Display message to the host
                 if (AmongUsClient.Instance.AmHost) {
