@@ -1,3 +1,5 @@
+![eisbison banner](./Images/TOR_logo_frenchtranslation.png)
+
 # TheOtherRoles - French Translation
 
 Il s'agit d'une traduction française du plugin TheOtherRoles pour le jeu vidéo [Among Us](https://innersloth.com/gameAmongUs.php). Ce plugin ajoute de nouveaux rôles pour les joueurs, comme le Hacker et le Maire, ce qui permet de varier les parties et de les rendre plus intéressantes.
