@@ -390,8 +390,8 @@ namespace TheOtherRoles {
             neutralRolesCountMax = CustomOption.Create(303, Types.General, cs(new Color(204f / 255f, 204f / 255f, 0, 1f), "Nombre maximal de rôles Neutres"), 15f, 0f, 15f, 1f);
             impostorRolesCountMin = CustomOption.Create(304, Types.General, cs(new Color(204f / 255f, 204f / 255f, 0, 1f), "Nombre minimal de rôles d'Imposteur"), 15f, 0f, 15f, 1f);
             impostorRolesCountMax = CustomOption.Create(305, Types.General, cs(new Color(204f / 255f, 204f / 255f, 0, 1f), "Nombre maximal de rôles d'Imposteur"), 15f, 0f, 15f, 1f);
-            modifiersCountMin = CustomOption.Create(306, Types.General, cs(new Color(204f / 255f, 204f / 255f, 0, 1f), "Nombre minimal d'Extra"), 15f, 0f, 15f, 1f);
-            modifiersCountMax = CustomOption.Create(307, Types.General, cs(new Color(204f / 255f, 204f / 255f, 0, 1f), "Nombre maximal d'Extra"), 15f, 0f, 15f, 1f);
+            modifiersCountMin = CustomOption.Create(306, Types.General, cs(new Color(204f / 255f, 204f / 255f, 0, 1f), "Nombre minimal de Modificateurs"), 15f, 0f, 15f, 1f);
+            modifiersCountMax = CustomOption.Create(307, Types.General, cs(new Color(204f / 255f, 204f / 255f, 0, 1f), "Nombre maximal de Modificateurs"), 15f, 0f, 15f, 1f);
 
             mafiaSpawnRate = CustomOption.Create(18, Types.Impostor, cs(Janitor.color, "Concierge"), rates, null, true);
             janitorCooldown = CustomOption.Create(19, Types.Impostor, "Temps de recharge du Concierge", 30f, 10f, 60f, 2.5f, mafiaSpawnRate);

@@ -73,8 +73,6 @@ namespace TheOtherRoles
         public static RoleInfo ninja = new RoleInfo("Ninja", Ninja.color, "Surprenez et assassinez vos ennemis", "Surprenez et assassinez vos ennemis", RoleId.Ninja);
         public static RoleInfo thief = new RoleInfo("Voleur", Thief.color, "Volez le rôle d'un tueur en le tuant", "Volez le rôle d'un tueur", RoleId.Thief, true);
         public static RoleInfo bomber = new RoleInfo("Bombardier", Bomber.color, "Faites exploser tous les membres de l'équipage", "Faites exploser tous les membres de l'équipage", RoleId.Bomber);
-
-
         public static RoleInfo hunter = new RoleInfo("Chasseur", Palette.ImpostorRed, Helpers.cs(Palette.ImpostorRed, "Cherche et tue tout le monde"), "Cherche et tue tout le monde", RoleId.Impostor);
         public static RoleInfo hunted = new RoleInfo("Chassé", Color.white, "Se cacher", "Se cacher", RoleId.Crewmate);
 
