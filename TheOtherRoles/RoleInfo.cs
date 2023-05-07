@@ -35,13 +35,13 @@ namespace TheOtherRoles
         public static RoleInfo sheriff = new RoleInfo("Shérif", Sheriff.color, "Tirer sur les <color=#FF1919FF>Imposteurs</color>", "Tirer sur les Imposteurs", RoleId.Sheriff);
         public static RoleInfo deputy = new RoleInfo("Adjoint(e)", Sheriff.color, "Menotter les <color=#FF1919FF>Imposteurs</color>", "Menotter les Imposteurs", RoleId.Deputy);
         public static RoleInfo lighter = new RoleInfo("Éclaireur", Lighter.color, "Votre lampe ne s'éteint jamais", "Votre lampe ne s'éteint jamais", RoleId.Lighter);
-        public static RoleInfo godfather = new RoleInfo("Parrain", Godfather.color, "Tuer tous les membres de l'équipage", "Tuer tous les membres de l'équipage", RoleId.Godfather);
-        public static RoleInfo mafioso = new RoleInfo("Mafieux", Mafioso.color, "Travailler avec la <color=#FF1919FF>Mafia</color> pour tuer les membres de l'équipage", "Tuer tous les membres de l'équipage", RoleId.Mafioso);
+        public static RoleInfo godfather = new RoleInfo("Parrain", Godfather.color, "Tuer tous les Crewmates", "Tuer tous les Crewmates", RoleId.Godfather);
+        public static RoleInfo mafioso = new RoleInfo("Mafieux", Mafioso.color, "Travailler avec la <color=#FF1919FF>Mafia</color> pour tuer les Crewmates", "Tuer tous les Crewmates", RoleId.Mafioso);
         public static RoleInfo janitor = new RoleInfo("Concierge", Janitor.color, "Travailler avec la <color=#FF1919FF>Mafia</color> en cachant les cadavres", "Cacher les cadavres", RoleId.Janitor);
         public static RoleInfo morphling = new RoleInfo("Métamorph", Morphling.color, "Changer d'apparence pour ne pas être repéré(e)", "Changer d'apparence", RoleId.Morphling);
-        public static RoleInfo camouflager = new RoleInfo("Camoufleur", Camouflager.color, "Se camoufler et tuer les membres de l'équipage", "Se cacher parmi les autres", RoleId.Camouflager);
-        public static RoleInfo vampire = new RoleInfo("Vampire", Vampire.color, "Tuer les membres de l'équipage avec vos morsures", "Mordre vos ennemis", RoleId.Vampire);
-        public static RoleInfo eraser = new RoleInfo("Effaceur", Eraser.color, "Tuer les membres de l'équipage et effacer leurs rôles", "Effacer les rôles de vos ennemis", RoleId.Eraser);
+        public static RoleInfo camouflager = new RoleInfo("Camoufleur", Camouflager.color, "Se camoufler et tuer les Crewmates", "Se cacher parmi les autres", RoleId.Camouflager);
+        public static RoleInfo vampire = new RoleInfo("Vampire", Vampire.color, "Tuer les Crewmates avec vos morsures", "Mordre vos ennemis", RoleId.Vampire);
+        public static RoleInfo eraser = new RoleInfo("Effaceur", Eraser.color, "Tuer les Crewmates et effacer leurs rôles", "Effacer les rôles de vos ennemis", RoleId.Eraser);
         public static RoleInfo trickster = new RoleInfo("Farceur", Trickster.color, "Utiliser vos boîtes à surprises pour surprendre les autres", "Surprendre vos ennemis", RoleId.Trickster);
         public static RoleInfo cleaner = new RoleInfo("Nettoyeur", Cleaner.color, "Tuer tout le monde et ne laisser aucune trace", "Nettoyer les corps morts", RoleId.Cleaner);
         public static RoleInfo warlock = new RoleInfo("Sorcier", Warlock.color, "Maudire les autres joueurs et tuer tout le monde", "Maudire et tuer tout le monde", RoleId.Warlock);
@@ -54,7 +54,7 @@ namespace TheOtherRoles
         public static RoleInfo hacker = new RoleInfo("Hacker", Hacker.color, "Pirater des systèmes pour trouver les <color=#FF1919FF>Imposteurs</color>", "Pirater pour trouver les Imposteurs", RoleId.Hacker);
         public static RoleInfo tracker = new RoleInfo("Pisteur", Tracker.color, "Pister les <color=#FF1919FF>Imposteurs</color>", "Pister les Imposteurs", RoleId.Tracker);
         public static RoleInfo snitch = new RoleInfo("Poucave", Snitch.color, "Terminez vos tâches pour trouver les <color=#FF1919FF>Imposteurs</color>", "Terminez vos tâches", RoleId.Snitch);
-        public static RoleInfo jackal = new RoleInfo("Chacal", Jackal.color, "Tuer tous les membres de l'équipage et les <color=#FF1919FF>Imposteurs</color> pour gagner", "Tuer tout le monde", RoleId.Jackal, true);
+        public static RoleInfo jackal = new RoleInfo("Chacal", Jackal.color, "Tuer tous les Crewmates et les <color=#FF1919FF>Imposteurs</color> pour gagner", "Tuer tout le monde", RoleId.Jackal, true);
         public static RoleInfo sidekick = new RoleInfo("Acolyte", Sidekick.color, "Aider votre Chacal à tuer tout le monde", "Aider votre Chacal à tuer tout le monde", RoleId.Sidekick, true);
         public static RoleInfo spy = new RoleInfo("Espion", Spy.color, "Confondre les <color=#FF1919FF>Imposteurs</color>", "Confondre les Imposteurs", RoleId.Spy);
         public static RoleInfo securityGuard = new RoleInfo("Gardien", SecurityGuard.color, "Scellez les conduits et placez des caméras", "Scellez les conduits et placez des caméras", RoleId.SecurityGuard);
@@ -72,7 +72,7 @@ namespace TheOtherRoles
         public static RoleInfo witch = new RoleInfo("Sorcière", Witch.color, "Lancez un sort sur vos ennemis", "Lancez un sort sur vos ennemis", RoleId.Witch);
         public static RoleInfo ninja = new RoleInfo("Ninja", Ninja.color, "Surprenez et assassinez vos ennemis", "Surprenez et assassinez vos ennemis", RoleId.Ninja);
         public static RoleInfo thief = new RoleInfo("Voleur", Thief.color, "Volez le rôle d'un tueur en le tuant", "Volez le rôle d'un tueur", RoleId.Thief, true);
-        public static RoleInfo bomber = new RoleInfo("Bombardier", Bomber.color, "Faites exploser tous les membres de l'équipage", "Faites exploser tous les membres de l'équipage", RoleId.Bomber);
+        public static RoleInfo bomber = new RoleInfo("Bombardier", Bomber.color, "Faites exploser tous les Crewmates", "Faites exploser tous les Crewmates", RoleId.Bomber);
         public static RoleInfo hunter = new RoleInfo("Chasseur", Palette.ImpostorRed, Helpers.cs(Palette.ImpostorRed, "Cherche et tue tout le monde"), "Cherche et tue tout le monde", RoleId.Impostor);
         public static RoleInfo hunted = new RoleInfo("Chassé", Color.white, "Se cacher", "Se cacher", RoleId.Crewmate);
 
