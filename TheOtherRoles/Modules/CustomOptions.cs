@@ -22,6 +22,7 @@ namespace TheOtherRoles {
             Neutral,
             Crewmate,
             Modifier,
+            Wiki,
             Guesser,
             HideNSeekMain,
             HideNSeekRoles
@@ -204,7 +205,8 @@ namespace TheOtherRoles {
                     ["ImpostorSettings"] = "Impostor Roles Settings",
                     ["NeutralSettings"] = "Neutral Roles Settings",
                     ["CrewmateSettings"] = "Crewmate Roles Settings",
-                    ["ModifierSettings"] = "Modifier Settings"
+                    ["ModifierSettings"] = "Modifier Settings",
+                    ["WikiSettings"] = "Wiki Settings"
                 });
 
             if (isReturn) return;
@@ -230,6 +232,9 @@ namespace TheOtherRoles {
             var modifierSettings = UnityEngine.Object.Instantiate(gameSettings, gameSettings.transform.parent);
             var modifierMenu = getMenu(modifierSettings, "ModifierSettings");
 
+            var wikiSettings = UnityEngine.Object.Instantiate(gameSettings, gameSettings.transform.parent);
+            var wikiMenu = getMenu(wikiSettings, "WikiSettings");
+
             var roleTab = GameObject.Find("RoleTab");
             var gameTab = GameObject.Find("GameTab");
 
@@ -248,6 +253,9 @@ namespace TheOtherRoles {
             var modifierTab = UnityEngine.Object.Instantiate(roleTab, crewmateTab.transform);
             var modifierTabHighlight = getTabHighlight(modifierTab, "ModifierTab", "TheOtherRoles.Resources.TabIconModifier.png");
 
+            var wikiTab = UnityEngine.Object.Instantiate(roleTab, modifierTab.transform);
+            var wikiTabHighlight = getTabHighlight(wikiTab, "WikiTab", "TheOtherRoles.Resources.TabIconWiki.png");
+
             // Position of Tab Icons
             gameTab.transform.position += Vector3.left * 3f;
             roleTab.transform.position += Vector3.left * 3f;
@@ -256,8 +264,10 @@ namespace TheOtherRoles {
             neutralTab.transform.localPosition = Vector3.right * 1f;
             crewmateTab.transform.localPosition = Vector3.right * 1f;
             modifierTab.transform.localPosition = Vector3.right * 1f;
+            wikiTab.transform.localPosition = Vector3.right * 1f;
 
-            var tabs = new GameObject[] { gameTab, roleTab, torTab, impostorTab, neutralTab, crewmateTab, modifierTab };
+
+            var tabs = new GameObject[] { gameTab, roleTab, torTab, impostorTab, neutralTab, crewmateTab, modifierTab, wikiTab };
             var settingsHighlightMap = new Dictionary<GameObject, SpriteRenderer> {
                 [gameSettingMenu.RegularGameSettings] = gameSettingMenu.GameSettingsHightlight,
                 [gameSettingMenu.RolesSettings.gameObject] = gameSettingMenu.RolesSettingsHightlight,
@@ -265,7 +275,9 @@ namespace TheOtherRoles {
                 [impostorSettings.gameObject] = impostorTabHighlight,
                 [neutralSettings.gameObject] = neutralTabHighlight,
                 [crewmateSettings.gameObject] = crewmateTabHighlight,
-                [modifierSettings.gameObject] = modifierTabHighlight
+                [modifierSettings.gameObject] = modifierTabHighlight,
+                [wikiSettings.gameObject] = wikiTabHighlight
+
             };
             for (int i = 0; i < tabs.Length; i++) {
                 var button = tabs[i].GetComponentInChildren<PassiveButton>();
@@ -282,7 +294,9 @@ namespace TheOtherRoles {
                 impostorMenu.GetComponentsInChildren<OptionBehaviour>().ToList(),
                 neutralMenu.GetComponentsInChildren<OptionBehaviour>().ToList(),
                 crewmateMenu.GetComponentsInChildren<OptionBehaviour>().ToList(),
-                modifierMenu.GetComponentsInChildren<OptionBehaviour>().ToList()
+                modifierMenu.GetComponentsInChildren<OptionBehaviour>().ToList(),
+                wikiMenu.GetComponentsInChildren<OptionBehaviour>().ToList()
+
             });
 
             List<OptionBehaviour> torOptions = new List<OptionBehaviour>();
@@ -290,10 +304,12 @@ namespace TheOtherRoles {
             List<OptionBehaviour> neutralOptions = new List<OptionBehaviour>();
             List<OptionBehaviour> crewmateOptions = new List<OptionBehaviour>();
             List<OptionBehaviour> modifierOptions = new List<OptionBehaviour>();
+            List<OptionBehaviour> wikiOptions = new List<OptionBehaviour>();
 
 
-            List<Transform> menus = new List<Transform>() { torMenu.transform, impostorMenu.transform, neutralMenu.transform, crewmateMenu.transform, modifierMenu.transform };
-            List<List<OptionBehaviour>> optionBehaviours = new List<List<OptionBehaviour>>() { torOptions, impostorOptions, neutralOptions, crewmateOptions, modifierOptions };
+
+            List<Transform> menus = new List<Transform>() { torMenu.transform, impostorMenu.transform, neutralMenu.transform, crewmateMenu.transform, modifierMenu.transform, wikiMenu.transform };
+            List<List<OptionBehaviour>> optionBehaviours = new List<List<OptionBehaviour>>() { torOptions, impostorOptions, neutralOptions, crewmateOptions, modifierOptions, wikiOptions };
 
             for (int i = 0; i < CustomOption.options.Count; i++) {
                 CustomOption option = CustomOption.options[i];
@@ -328,7 +344,9 @@ namespace TheOtherRoles {
                     ["ImpostorSettings"] = "Impostor Roles Settings",
                     ["NeutralSettings"] = "Neutral Roles Settings",
                     ["CrewmateSettings"] = "Crewmate Roles Settings",
-                    ["ModifierSettings"] = "Modifier Settings"
+                    ["ModifierSettings"] = "Modifier Settings",
+                    ["WikiSettings"] = "Wiki Settings"
+
                 });
 
             if (isReturn) return;
@@ -357,6 +375,9 @@ namespace TheOtherRoles {
             var modifierSettings = UnityEngine.Object.Instantiate(gameSettings, gameSettings.transform.parent);
             var modifierMenu = getMenu(modifierSettings, "ModifierSettings");
 
+            var wikiSettings = UnityEngine.Object.Instantiate(gameSettings, gameSettings.transform.parent);
+            var wikiMenu = getMenu(wikiSettings, "WikiSettings");
+
             var roleTab = GameObject.Find("RoleTab");
             var gameTab = GameObject.Find("GameTab");
 
@@ -378,6 +399,9 @@ namespace TheOtherRoles {
             var modifierTab = UnityEngine.Object.Instantiate(roleTab, crewmateTab.transform);
             var modifierTabHighlight = getTabHighlight(modifierTab, "ModifierTab", "TheOtherRoles.Resources.TabIconModifier.png");
 
+            var wikiTab = UnityEngine.Object.Instantiate(roleTab, modifierTab.transform);
+            var wikiTabHighlight = getTabHighlight(wikiTab, "WikiTab", "TheOtherRoles.Resources.TabIconWiki.png");
+
             roleTab.active = false;
             // Position of Tab Icons
             gameTab.transform.position += Vector3.left * 3f;
@@ -387,8 +411,9 @@ namespace TheOtherRoles {
             neutralTab.transform.localPosition = Vector3.right * 1f;
             crewmateTab.transform.localPosition = Vector3.right * 1f;
             modifierTab.transform.localPosition = Vector3.right * 1f;
+            wikiTab.transform.localPosition = Vector3.right * 1f;
 
-            var tabs = new GameObject[] { gameTab, torTab, impostorTab, neutralTab, crewmateTab, modifierTab, guesserTab };
+            var tabs = new GameObject[] { gameTab, torTab, impostorTab, neutralTab, crewmateTab, modifierTab, wikiTab, guesserTab };
             var settingsHighlightMap = new Dictionary<GameObject, SpriteRenderer> {
                 [gameSettingMenu.RegularGameSettings] = gameSettingMenu.GameSettingsHightlight,
                 [torSettings.gameObject] = torTabHighlight,
@@ -396,6 +421,7 @@ namespace TheOtherRoles {
                 [neutralSettings.gameObject] = neutralTabHighlight,
                 [crewmateSettings.gameObject] = crewmateTabHighlight,
                 [modifierSettings.gameObject] = modifierTabHighlight,
+                [wikiSettings.gameObject] = wikiTabHighlight,
                 [guesserSettings.gameObject] = guesserTabHighlight
             };
             for (int i = 0; i < tabs.Length; i++) {               
@@ -423,10 +449,12 @@ namespace TheOtherRoles {
             List<OptionBehaviour> neutralOptions = new List<OptionBehaviour>();
             List<OptionBehaviour> crewmateOptions = new List<OptionBehaviour>();
             List<OptionBehaviour> modifierOptions = new List<OptionBehaviour>();
+            List<OptionBehaviour> wikiOptions = new List<OptionBehaviour>();
 
 
-            List<Transform> menus = new List<Transform>() { torMenu.transform, impostorMenu.transform, neutralMenu.transform, crewmateMenu.transform, modifierMenu.transform, guesserMenu.transform };
-            List<List<OptionBehaviour>> optionBehaviours = new List<List<OptionBehaviour>>() { torOptions, impostorOptions, neutralOptions, crewmateOptions, modifierOptions, guesserOptions };
+
+            List<Transform> menus = new List<Transform>() { torMenu.transform, impostorMenu.transform, neutralMenu.transform, crewmateMenu.transform, modifierMenu.transform, wikiMenu.transform, guesserMenu.transform };
+            List<List<OptionBehaviour>> optionBehaviours = new List<List<OptionBehaviour>>() { torOptions, impostorOptions, neutralOptions, crewmateOptions, modifierOptions, wikiOptions, guesserOptions };
             List<int> exludedIds = new List<int> { 310, 311, 312, 313, 314, 315, 316, 317, 318 };
 
             for (int i = 0; i < CustomOption.options.Count; i++) {
@@ -447,9 +475,9 @@ namespace TheOtherRoles {
             }
 
             setOptions(
-                new List<GameOptionsMenu> { torMenu, impostorMenu, neutralMenu, crewmateMenu, modifierMenu, guesserMenu }, 
-                new List<List<OptionBehaviour>> { torOptions, impostorOptions, neutralOptions, crewmateOptions, modifierOptions, guesserOptions }, 
-                new List<GameObject> { torSettings, impostorSettings, neutralSettings, crewmateSettings, modifierSettings, guesserSettings }
+                new List<GameOptionsMenu> { torMenu, impostorMenu, neutralMenu, crewmateMenu, modifierMenu, wikiMenu, guesserMenu }, 
+                new List<List<OptionBehaviour>> { torOptions, impostorOptions, neutralOptions, crewmateOptions, modifierOptions, wikiOptions, guesserOptions }, 
+                new List<GameObject> { torSettings, impostorSettings, neutralSettings, crewmateSettings, modifierSettings, wikiSettings, guesserSettings }
             );
 
             adaptTaskCount(__instance);
@@ -699,6 +727,8 @@ namespace TheOtherRoles {
                     continue;
                 if (GameObject.Find("ModifierSettings") && option.type != CustomOption.CustomOptionType.Modifier)
                     continue;
+                if (GameObject.Find("WikiSettings") && option.type != CustomOption.CustomOptionType.Modifier)
+                    continue;
                 if (GameObject.Find("GuesserSettings") && option.type != CustomOption.CustomOptionType.Guesser)
                     continue;
                 if (GameObject.Find("HideNSeekSettings") && option.type != CustomOption.CustomOptionType.HideNSeekRoles)
@@ -732,8 +762,9 @@ namespace TheOtherRoles {
             var impRoles = buildOptionsOfType(CustomOption.CustomOptionType.Impostor, true) + "\n";
             var neutralRoles = buildOptionsOfType(CustomOption.CustomOptionType.Neutral, true) + "\n";
             var crewRoles = buildOptionsOfType(CustomOption.CustomOptionType.Crewmate, true) + "\n";
-            var modifiers = buildOptionsOfType(CustomOption.CustomOptionType.Modifier, true);
-            return impRoles + neutralRoles + crewRoles + modifiers;
+            var modifiers = buildOptionsOfType(CustomOption.CustomOptionType.Modifier, true) + "\n";
+            var wiki = buildOptionsOfType(CustomOption.CustomOptionType.Wiki, true);
+            return impRoles + neutralRoles + crewRoles + modifiers + wiki;
         }
         private static string buildModifierExtras(CustomOption customOption) {
             // find options children with quantity
@@ -839,7 +870,7 @@ namespace TheOtherRoles {
                 vanillaSettings = GameOptionsManager.Instance.CurrentGameOptions.ToHudString(PlayerControl.AllPlayerControls.Count);
             int counter = TheOtherRolesPlugin.optionsPage;
             string hudString = counter != 0 && !hideExtras ? Helpers.cs(DateTime.Now.Second % 2 == 0 ? Color.white : Color.red, "(Utilise la molette si nécéssaire)\n\n") : "";
-            int maxPage = 7;
+            int maxPage = 8;
             if (TORMapOptions.gameMode == CustomGamemodes.HideNSeek) {
                 if (TheOtherRolesPlugin.optionsPage > 1) TheOtherRolesPlugin.optionsPage = 0;
                 maxPage = 2;
@@ -873,6 +904,9 @@ namespace TheOtherRoles {
                         break;
                     case 6:
                         hudString += "Page 7: Paramètres des Extras \n" + buildOptionsOfType(CustomOption.CustomOptionType.Modifier, false);
+                        break;
+                    case 7:
+                        hudString += "Page 8: Wiki \n" + buildOptionsOfType(CustomOption.CustomOptionType.Wiki, false);
                         break;
                 }
             }
@@ -919,6 +953,10 @@ namespace TheOtherRoles {
             }
             if (Input.GetKeyDown(KeyCode.Alpha7) || Input.GetKeyDown(KeyCode.Keypad7)) {
                 TheOtherRolesPlugin.optionsPage = 6;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha8) || Input.GetKeyDown(KeyCode.Keypad8))
+            {
+                TheOtherRolesPlugin.optionsPage = 7;
             }
             if (Input.GetKeyDown(KeyCode.F1))
                 HudManagerUpdate.ToggleSettings(HudManager.Instance);
@@ -1086,9 +1124,11 @@ namespace TheOtherRoles {
                 toggleSettingsButton = toggleSettingsButtonObject.GetComponent<PassiveButton>();
                 toggleSettingsButton.OnClick.RemoveAllListeners();
                 toggleSettingsButton.OnClick.AddListener((Action)(() => ToggleSettings(__instance)));
+
             }
             toggleSettingsButtonObject.SetActive(__instance.MapButton.gameObject.active && !(MapBehaviour.Instance && MapBehaviour.Instance.IsOpen) && GameOptionsManager.Instance.currentGameOptions.GameMode != GameModes.HideNSeek);
             toggleSettingsButtonObject.transform.localPosition = __instance.MapButton.transform.localPosition + new Vector3(0, -0.66f, -500f);
+
         }
     }
 }
